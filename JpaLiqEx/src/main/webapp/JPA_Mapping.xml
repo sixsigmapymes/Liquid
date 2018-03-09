@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JPAEDMMappingModel
+	xmlns="http://www.apache.org/olingo/odata2/jpa/processor/api/model/mapping">
+	<PersistenceUnit name="liquibasePerist">
+		<EDMSchemaNamespace>com.sap.s4idea.ipd.model</EDMSchemaNamespace>
+		<JPAEntityTypes>
+			<JPAEntityType name="Comment">
+				<EDMEntityType>Comment</EDMEntityType>
+				<EDMEntitySet>CommentsSet</EDMEntitySet>
+				<JPAAttributes>
+					<JPAAttribute name="entityId">EntityId</JPAAttribute>
+					<JPAAttribute name="commentId">CommentId</JPAAttribute>
+					<JPAAttribute name="title">Title</JPAAttribute>
+					<JPAAttribute name="description">Description</JPAAttribute>
+					<JPAAttribute name="entityType">EntityType</JPAAttribute>
+					<JPAAttribute name="language">Language</JPAAttribute>
+					<JPAAttribute name="isDeleted">IsDeleted</JPAAttribute>
+					<JPAAttribute name="parentId">ParentId</JPAAttribute>
+					<JPAAttribute name="createdBy">CreatedBy</JPAAttribute>
+					<JPAAttribute name="createdAt">CreatedAt</JPAAttribute>
+					<JPAAttribute name="changedBy">ChangedBy</JPAAttribute>
+					<JPAAttribute name="changedAt">ChangedAt</JPAAttribute>
+					<JPAAttribute name="context">Context</JPAAttribute>
+				</JPAAttributes>
+				<JPARelationships>
+				</JPARelationships>
+			</JPAEntityType>
+			<JPAEntityType name="AccessToken">
+				<EDMEntityType>AccessToken</EDMEntityType>
+				<EDMEntitySet>AccessTokenSet</EDMEntitySet>
+			</JPAEntityType>
+		</JPAEntityTypes>
+	</PersistenceUnit>
+</JPAEDMMappingModel>

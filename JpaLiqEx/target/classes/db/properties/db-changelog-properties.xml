@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+
+	<!-- Portable database type definitions -->
+	<property name="type.bigint" value="BIGINT" dbms="all,derby,hanadb" />
+
+	<property name="type.int" value="INT" dbms="all,derby,hanadb" />
+
+	<property name="type.smallint" value="SMALLINT" dbms="all,derby,hanadb" />
+
+	<property name="type.double" value="DOUBLE" dbms="all,derby,hanadb" />
+
+	<property name="type.timestamp" value="TIMESTAMP" dbms="all,derby,hanadb" />
+
+	<property name="type.boolean" value="BOOLEAN" dbms="all,derby,hanadb" />
+
+	<property name="type.unicode120" value="NVARCHAR(120)" dbms="hanadb" />
+	<property name="type.unicode120" value="VARCHAR(120)" dbms="all,derby" />
+
+	<property name="type.unicode200" value="NVARCHAR(200)" dbms="hanadb" />
+	<property name="type.unicode200" value="VARCHAR(200)" dbms="all,derby" />
+
+	<property name="type.unicode255" value="NVARCHAR(255)" dbms="hanadb" />
+	<property name="type.unicode255" value="VARCHAR(255)" dbms="all,derby" />
+
+	<property name="type.unicode2k" value="NVARCHAR(2000)" dbms="hanadb" />
+	<property name="type.unicode2k" value="VARCHAR(2000)" dbms="all,derby" />
+</databaseChangeLog>	

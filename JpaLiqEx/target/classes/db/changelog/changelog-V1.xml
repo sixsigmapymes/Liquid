@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+	http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+	<changeSet author="SampleAuthor" id="Employee">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="EMPLOYEE" />
+			</not>
+		</preConditions>
+		<comment>Employee table creation (with PK)</comment>
+		<createTable tableName="EMPLOYEE">
+			<column name="EMP_ID" type="${type.unicode120}">
+				<constraints nullable="false" />
+			</column>
+			<column name="EMP_NAME" type="${type.unicode200}">
+				<constraints nullable="false" />
+			</column>
+			<column name="EMP_ADDRESS" type="${type.unicode200}">
+				<constraints nullable="false" />
+			</column>
+			<column name="DESCRIPTION" type="${type.unicode255}" />
+			<column name="PHONE" type="${type.unicode200}">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames=" EMP_ID " constraintName="EMPLOYEE_ID"
+			tableName="EMPLOYEE" />
+	</changeSet>
+
+	<changeSet author="SampleAuthor" id="Orders">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="ORDERS" />
+			</not>
+		</preConditions>
+
+		<comment>Orders table creation (with PK)</comment>
+		<createTable tableName="ORDERS">
+			<column name="TRANSACTION_ID" type="${type.unicode120}">
+				<constraints nullable="false" />
+			</column>
+			<column name="ORDER_ID" type="${type.unicode120}">
+				<constraints nullable="false" />
+			</column>
+			<column name="COMMENTS" type="${type.unicode200}">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="TRANSACTION_ID"
+			constraintName="TRANSACTION_ID" tableName="ORDERS" />
+	</changeSet>
+
+	<!-- Add new Columns in Orders table and in precondition need to check if 
+		column exists -->
+	<changeSet author="SampleAuthor" id="addNewColumnOrder">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<columnExists columnName="QUANTITY" tableName="ORDERS" />
+			</not>
+		</preConditions>
+		<comment>Orders table create new column in order table</comment>
+		<addColumn tableName="ORDERS">
+			<column name="QUANTITY" type="${type.unicode255}" />
+		</addColumn>
+	</changeSet>
+
+	<!-- Modify existing column quantity from nvarchar to bigint -->
+	<!-- <changeSet author="SampleAuthor" id="OrdersTableModifyColumn">
+ 		<preConditions onFail="CONTINUE">
+			<tableIsEmpty/>
+			<not>
+				<columnExists columnName="QUANTITY" tableName="ORDERS" />
+			</not>
+		</preConditions>
+		<modifyDataType  columnName="QUANTITY" newDataType="${type.int}" 
+			tableName="ORDERS" />
+	</changeSet> -->
+</databaseChangeLog>
